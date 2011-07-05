@@ -1,3 +1,4 @@
 # Ignorar todos os diretórios e arquivos em um diretório.
 winVenda/bin/*
 winVenda/obj/*
+winVenda.suo
