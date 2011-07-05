@@ -21,9 +21,10 @@ namespace winVenda
             //Verificar se existe banco de dados
             if (System.Configuration.ConfigurationManager.AppSettings["serverDB"] == null)
                 new FormConfig().ShowDialog();
-            
+            else
             Conn.Conectar();
             Application.Run(new TelaPrincipal());
+            Conn.Close();
         }
     }
 }

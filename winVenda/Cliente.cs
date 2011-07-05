@@ -60,8 +60,7 @@ namespace winVenda
         public void Salvar()
         {
 
-            string sql = "INSERT INTO clientes VALUES(null, " + "@nome" + "," +
-                        "@endereco" + ", " + "@telefone" + ");";
+            string sql = "INSERT INTO clientes VALUES(null, @nome, @endereco, @telefone);";
             MySqlCommand commS = new MySqlCommand (sql, Conn.mConn);
             // adiciona-se o parametro, indicando o nome e o tipo
             commS.Parameters.Add("@nome", MySqlDbType.VarChar);
@@ -84,19 +83,23 @@ namespace winVenda
             string sql = "SELECT * FROM Clientes;";
             MySqlCommand commS = new MySqlCommand
                 (sql, Conn.mConn);
-            MySqlDataReader mReader = Conn.ExecuteQuery(commS);
-            while (mReader.Read() != false)
+            DataTable dt = Conn.ExecuteQuery(commS);
+            if (dt != null)
             {
-                Cliente c = new Cliente();
-                c.Codigo = int.Parse(mReader.GetValue(0).ToString());
-                c.Nome = mReader.GetValue(1).ToString();
-                c.Endereco = mReader.GetValue(2).ToString();
-                c.Telefone = mReader.GetValue(3).ToString();
-                arr.Add(c);
+                int i=0;
+                while ( i < dt.Rows.Count)
+                {
+                    Cliente c = new Cliente();
+                    c.Codigo = int.Parse(dt.Rows[i][0].ToString());
+                    c.Nome = dt.Rows[i][1].ToString();
+                    c.Endereco = dt.Rows[i][2].ToString();
+                    c.Telefone = dt.Rows[i][3].ToString();
+                    arr.Add(c);
+                    i++;
+                }
             }
-            Conn.mConn.Close();
-            return arr;
-
+                return arr;
+            
         }
         public ArrayList listar(string _n)
         {
@@ -110,17 +113,21 @@ namespace winVenda
 
             // atribui-se o respectivo valor
             commS.Parameters["@nome"].Value = _n;
-            MySqlDataReader mReader = Conn.ExecuteQuery(commS);
-            while (mReader.Read() != false)
+            DataTable dt = Conn.ExecuteQuery(commS);
+            if (dt != null)
             {
-                Cliente c = new Cliente();
-                c.Codigo = int.Parse(mReader.GetValue(0).ToString());
-                c.Nome = mReader.GetValue(1).ToString();
-                c.Endereco = mReader.GetValue(2).ToString();
-                c.Telefone = mReader.GetValue(3).ToString();
-                arr.Add(c);
-            }
-            Conn.mConn.Close();
+                int i = 0;
+                while (i < dt.Rows.Count)
+                {
+                    Cliente c = new Cliente();
+                    c.Codigo = int.Parse(dt.Rows[i][0].ToString());
+                    c.Nome = dt.Rows[i][1].ToString();
+                    c.Endereco = dt.Rows[i][2].ToString();
+                    c.Telefone = dt.Rows[i][3].ToString();
+                    arr.Add(c);
+                    i++;
+                }
+            } 
             return arr;
         }
 

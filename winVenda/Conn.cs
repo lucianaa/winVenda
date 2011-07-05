@@ -12,15 +12,15 @@ namespace winVenda
         public static MySqlConnection mConn;
         //buscar das variaveis de programa
         static string connectionstring = "";
-        MySqlConnectionStringBuilder myCSB = new MySqlConnectionStringBuilder();
+        static MySqlConnectionStringBuilder myCSB = new MySqlConnectionStringBuilder();
   
-        public String hostDB { get; set; }
+        static public String hostDB { get; set; }
 
-        public String userDB { get; set; }
+        static public String userDB { get; set; }
 
-        public String passwdDB { get; set; }
+        static public String passwdDB { get; set; }
 
-        public String Database { get; set; }
+        static public String Database { get; set; }
 
 
         public static void Conectar()
@@ -39,15 +39,7 @@ namespace winVenda
         }
         public static void ExecuteNonQuery(MySqlCommand commS)
         {
-            try
-            {
-                mConn.Open();
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+           
             if (mConn.State == ConnectionState.Open)
             {
                 /*Representa uma instrução SQL a ser executada
@@ -67,32 +59,25 @@ namespace winVenda
                 }
             }
 
-            //Fecha a conexão
-            mConn.Close();
         }
 
-        public static MySqlDataReader ExecuteQuery(MySqlCommand commS)
+        public static DataTable ExecuteQuery(MySqlCommand commS)
         {
-            MySqlDataReader mReader = null;
+           
 
-            try
-            {
-                mConn.Open();
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
             if (mConn.State == ConnectionState.Open)
             {
 
                 //Executa a SQL no banco de dados
                 try
                 {
-                    mReader = commS.ExecuteReader();
-
-                    return mReader;
+                   
+                    MySqlDataAdapter da = new MySqlDataAdapter();
+                    da.SelectCommand = commS;
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    
+                    return dt;
 
                 }
                 catch (MySqlException e)
@@ -102,7 +87,7 @@ namespace winVenda
                 }
 
             }
-            return mReader;
+            return null;
 
 
         }
@@ -112,19 +97,25 @@ namespace winVenda
         /// </summary>
         /// <returns>string</returns>
 
-        public string createStringConnection()
+        static public string createStringConnection()
         {
             
-            myCSB.Server = this.hostDB;
-            myCSB.UserID = this.userDB;
-            myCSB.Password = this.passwdDB;
-            myCSB.Database = this.Database;
+            myCSB.Server = hostDB;
+            myCSB.UserID = userDB;
+            myCSB.Password = passwdDB;
+            myCSB.Database = Database;
             connectionstring = myCSB.ConnectionString;
             return myCSB.ConnectionString;
 
         }
 
 
+        static public void Close()
+        {
+            mConn.Close();
+            mConn.Dispose();
+
+        }
 
     }
 }

@@ -20,35 +20,61 @@ namespace winVenda
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != string.Empty)
+            if (Verifica() != 0)
             {
-                //Testar a conexão antes de salvar
+                MessageBox.Show("Os campos com * precisam ser preenchidos.");
+            }
+            else
+            {
+
+                Conn.hostDB = textBox1.Text;
+                Conn.Database = textBox2.Text;
+                Conn.userDB = textBox3.Text;
+                Conn.passwdDB = textBox4.Text;
+                Conn.createStringConnection();
+
                 try
                 {
                                        
                     Conn.Conectar();
+                    
+                    System.Configuration.Configuration config =
+                            ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    AppSettingsSection appSetSec = config.AppSettings;
+                    appSetSec.Settings["hostDB"].Value = textBox1.Text;
+                    appSetSec.Settings["database"].Value = textBox2.Text;
+                    appSetSec.Settings["userDB"].Value = textBox3.Text;
+                    appSetSec.Settings["passwordDB"].Value = textBox4.Text;
+                    label6.Text = "Conectado";
+                    config.Save();
+
+                // Atualiza a seção do appString também
+                 ConfigurationManager.RefreshSection("appSettings");
+
+                    MessageBox.Show("Configuração Salva");
+
+                    this.Close();
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Não foi possível conectar");
                 }
-                if (Conn.mConn.State == ConnectionState.Open)
-                {
-                    System.Configuration.Configuration config =
-                        ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                    AppSettingsSection appSetSec = config.AppSettings;
-                    appSetSec.Settings["hostDB"].Value = textBox1.Text;
-                    appSetSec.Settings["userDB"].Value = textBox2.Text;
-                    appSetSec.Settings["passwdDB"].Value = textBox3.Text;
-                    appSetSec.Settings["database"].Value = textBox4.Text;
-                    MessageBox.Show("Configuração Salva");
-                    this.Close();
-                }
-                
-               
+                               
                 
             }
+        }
+        int Verifica()
+        {
+            int erros=0;
+            if (textBox1.Text == string.Empty)
+            {
+                label1.Text = label1.Text + " *";
+                label1.ForeColor = Color.Red;
+                erros++;
+            }
+            return erros;
+            
         }
     }
 }
