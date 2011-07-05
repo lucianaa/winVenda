@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-
+using System.Configuration;
 namespace winVenda
 {
     static class Program
@@ -13,11 +13,16 @@ namespace winVenda
         [STAThread]
         static void Main()
         {
-            //Verificar se existe banco de dados
+
             
-            Conn.Conectar();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //Verificar se existe banco de dados
+            if (System.Configuration.ConfigurationManager.AppSettings["serverDB"] == null)
+                new FormConfig().ShowDialog();
+            
+            Conn.Conectar();
             Application.Run(new TelaPrincipal());
         }
     }

@@ -34,14 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accessibility">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="MySql.Data, Version=5.2.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,6 +77,12 @@
       <DependentUpon>ClientesCadastrados.cs</DependentUpon>
     </Compile>
     <Compile Include="Conn.cs" />
+    <Compile Include="FormConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfig.Designer.cs">
+      <DependentUpon>FormConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientesCadastrados.resx">
       <DependentUpon>ClientesCadastrados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfig.resx">
+      <DependentUpon>FormConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

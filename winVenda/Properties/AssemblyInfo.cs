@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("winVenda")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IFNMG")]
+[assembly: AssemblyCompany("Luciana Balieiro")]
 [assembly: AssemblyProduct("winVenda")]
-[assembly: AssemblyCopyright("Copyright © IFNMG 2011")]
+[assembly: AssemblyCopyright("Copyright © Luciana Balieiro 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

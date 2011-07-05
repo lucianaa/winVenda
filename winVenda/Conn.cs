@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System.Collections;
-using System.Resources;
-using System.Globalization;
-using winVenda.Properties;
-using System.Reflection;
 
 namespace winVenda
 {
@@ -19,14 +11,26 @@ namespace winVenda
     {
         public static MySqlConnection mConn;
         //buscar das variaveis de programa
-        static string connectionstring = "server=localhost;database=poo;" +
-            "uid=root; pwd=''";
+        static string connectionstring = "";
+        MySqlConnectionStringBuilder myCSB = new MySqlConnectionStringBuilder();
+  
+        public String hostDB { get; set; }
+
+        public String userDB { get; set; }
+
+        public String passwdDB { get; set; }
+
+        public String Database { get; set; }
+
 
         public static void Conectar()
         {
             try
             {
+
                 mConn = new MySqlConnection(connectionstring);
+                mConn.Open();
+                
             }
             catch (MySqlException e)
             {
@@ -50,7 +54,7 @@ namespace winVenda
                  * Neste caso, o construtor recebe como parâmetro o comando SQL 
                  * e a conexão
                  */
-                
+
                 //Executa a SQL no banco de dados
                 try
                 {
@@ -59,7 +63,7 @@ namespace winVenda
                 catch (MySqlException e)
                 {
                     throw e;
- 
+
                 }
             }
 
@@ -70,7 +74,7 @@ namespace winVenda
         public static MySqlDataReader ExecuteQuery(MySqlCommand commS)
         {
             MySqlDataReader mReader = null;
-            
+
             try
             {
                 mConn.Open();
@@ -82,14 +86,14 @@ namespace winVenda
             }
             if (mConn.State == ConnectionState.Open)
             {
-                
+
                 //Executa a SQL no banco de dados
                 try
                 {
                     mReader = commS.ExecuteReader();
-                    
+
                     return mReader;
-                    
+
                 }
                 catch (MySqlException e)
                 {
@@ -97,9 +101,26 @@ namespace winVenda
 
                 }
 
-             }
+            }
             return mReader;
+
+
+        }
+
+        /// <summary>
+        /// Cria uma string de conexão e retorna-o
+        /// </summary>
+        /// <returns>string</returns>
+
+        public string createStringConnection()
+        {
             
+            myCSB.Server = this.hostDB;
+            myCSB.UserID = this.userDB;
+            myCSB.Password = this.passwdDB;
+            myCSB.Database = this.Database;
+            connectionstring = myCSB.ConnectionString;
+            return myCSB.ConnectionString;
 
         }
 
