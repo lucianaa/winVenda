@@ -11,7 +11,8 @@ namespace winVenda
     {
         public static MySqlConnection mConn;
         //buscar das variaveis de programa
-        static string connectionstring = "";
+        static string connectionstring = "server=localhost;database=poo;" +
+            "uid=root; pwd=''";
         static MySqlConnectionStringBuilder myCSB = new MySqlConnectionStringBuilder();
   
         static public String hostDB { get; set; }
@@ -25,6 +26,7 @@ namespace winVenda
 
         public static void Conectar()
         {
+            //
             try
             {
 
@@ -47,7 +49,8 @@ namespace winVenda
                  * e a conexão
                  */
 
-                //Executa a SQL no banco de dados
+                //Executa a SQL no banco de dados. 
+                //Tratamento de exceção
                 try
                 {
                     int i = commS.ExecuteNonQuery();
@@ -116,6 +119,11 @@ namespace winVenda
             mConn.Dispose();
 
         }
-
+        void recuperaConn()
+        {
+            if (System.Configuration.ConfigurationManager.AppSettings["serverDB"] != null)
+            { 
+            }
+        }
     }
 }

@@ -41,13 +41,13 @@ namespace winVenda
                     System.Configuration.Configuration config =
                             ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                     AppSettingsSection appSetSec = config.AppSettings;
-                    appSetSec.Settings["hostDB"].Value = textBox1.Text;
-                    appSetSec.Settings["database"].Value = textBox2.Text;
-                    appSetSec.Settings["userDB"].Value = textBox3.Text;
-                    appSetSec.Settings["passwordDB"].Value = textBox4.Text;
+                    config.AppSettings.Settings["hostDB"].Value = textBox1.Text;
+                    config.AppSettings.Settings["database"].Value = textBox2.Text;
+                    config.AppSettings.Settings["userDB"].Value = textBox3.Text;
+                    config.AppSettings.Settings["passwordDB"].Value = textBox4.Text;
                     label6.Text = "Conectado";
                     config.Save();
-
+                    //config.AppSettings.Settings[
                 // Atualiza a seção do appString também
                  ConfigurationManager.RefreshSection("appSettings");
 

@@ -44,8 +44,16 @@ namespace winVenda
             cl.Telefone = txtTelefone.Text;
             if (Codigo == 0)
             {
-                cl.Salvar();
-                MessageBox.Show("Dados salvos com sucesso");
+                try
+                {
+                    cl.Salvar();
+                    MessageBox.Show("Dados salvos com sucesso");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possivel salvar. " + ex.Message);
+                }
+                    
                 limpar();
             }
             else

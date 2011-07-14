@@ -11,6 +11,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Collections;
+using System;
 
 
 //A definição de namespaces pode ser encontrada no livro C#- Guia 
@@ -59,7 +60,7 @@ namespace winVenda
 
         public void Salvar()
         {
-
+            //Prevenção a sql injection
             string sql = "INSERT INTO clientes VALUES(null, @nome, @endereco, @telefone);";
             MySqlCommand commS = new MySqlCommand (sql, Conn.mConn);
             // adiciona-se o parametro, indicando o nome e o tipo
@@ -73,7 +74,15 @@ namespace winVenda
             commS.Parameters.Add("@telefone", MySqlDbType.VarChar);
             commS.Parameters["@telefone"].Value = telefone;
 
-            Conn.ExecuteNonQuery(commS);
+            try
+            {
+                Conn.ExecuteNonQuery(commS);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
 
         }
 
@@ -84,6 +93,7 @@ namespace winVenda
             MySqlCommand commS = new MySqlCommand
                 (sql, Conn.mConn);
             DataTable dt = Conn.ExecuteQuery(commS);
+            
             if (dt != null)
             {
                 int i=0;
