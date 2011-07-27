@@ -30,9 +30,9 @@ namespace winVenda
                 objf.Salvar();
                 MessageBox.Show("Dados salvos com sucesso!");
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("Não foi possível salvar" + e.Message);
+                MessageBox.Show("Não foi possível salvar" + ex.Message);
             }
 
         }

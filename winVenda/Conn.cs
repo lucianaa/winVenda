@@ -1,6 +1,8 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Xml;
+using System.IO;
 
 namespace winVenda
 {
@@ -11,8 +13,7 @@ namespace winVenda
     {
         public static MySqlConnection mConn;
         //buscar das variaveis de programa
-        static string connectionstring = "server=localhost;database=poo;" +
-            "uid=root; pwd=''";
+        static string connectionstring ;//= "server=localhost;database=poo;" + "uid=root; pwd=''";
         static MySqlConnectionStringBuilder myCSB = new MySqlConnectionStringBuilder();
   
         static public String hostDB { get; set; }
@@ -60,6 +61,35 @@ namespace winVenda
                     throw e;
 
                 }
+            }
+
+        }
+
+        public static void ExecuteNonQueryFile(string arq)
+        {
+            try
+            {
+                StreamReader rw = new StreamReader(arq);
+                string sql = rw.ReadToEnd();
+                MySqlCommand commS = new MySqlCommand
+                    (sql, mConn);
+
+                if (mConn.State == ConnectionState.Open)
+                {
+                    try
+                    {
+                        int i = commS.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        throw e;
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
 
         }
@@ -119,11 +149,20 @@ namespace winVenda
             mConn.Dispose();
 
         }
-        void recuperaConn()
+        static public void recuperaConn(string arq)
         {
-            if (System.Configuration.ConfigurationManager.AppSettings["serverDB"] != null)
-            { 
+            XmlTextReader reader = new XmlTextReader(arq);
+            //hostDB = reader["hostDB"];
+            
+            while (reader.Read())
+            {
+                hostDB = reader.GetAttribute("hostDB");
+                Database = reader.GetAttribute("database");
+                userDB = reader.GetAttribute("userDB");
+                passwdDB = reader.GetAttribute("passwordDB");
             }
+            createStringConnection();
+
         }
     }
 }

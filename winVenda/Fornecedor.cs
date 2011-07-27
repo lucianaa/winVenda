@@ -34,7 +34,7 @@ namespace winVenda
         public void Salvar()
         {
             //Prevenção a sql injection
-            string sql = "INSERT INTO fornecedor VALUES(null, @nome, @endereco, @telefone);";
+            string sql = "INSERT INTO fornecedores VALUES(null, @nome, @endereco, @telefone);";
             MySqlCommand commS = new MySqlCommand(sql, Conn.mConn);
             // adiciona-se o parametro, indicando o nome e o tipo
             commS.Parameters.Add("@nome", MySqlDbType.VarChar);

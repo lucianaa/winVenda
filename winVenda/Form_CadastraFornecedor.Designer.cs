@@ -110,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.btnSalvar);
@@ -120,6 +121,7 @@
             this.Controls.Add(this.lblEndereco);
             this.Controls.Add(this.lblNome);
             this.Name = "Form_CadastraFornecedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Fornecedores";
             this.ResumeLayout(false);
             this.PerformLayout();

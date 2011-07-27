@@ -37,6 +37,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +85,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(207, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(199, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(232, 155);
+            this.pictureBox1.Size = new System.Drawing.Size(264, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -133,7 +136,7 @@
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
             this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(315, 203);
+            this.button4.Location = new System.Drawing.Point(515, 203);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(124, 23);
             this.button4.TabIndex = 7;
@@ -141,12 +144,52 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.AliceBlue;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(515, 40);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(123, 24);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Fornecedores";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.AliceBlue;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(515, 103);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(123, 24);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Usuários";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.AliceBlue;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(515, 133);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(123, 24);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "Configuração";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(480, 297);
+            this.ClientSize = new System.Drawing.Size(679, 262);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -173,6 +216,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 

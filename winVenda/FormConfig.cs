@@ -8,18 +8,23 @@ using System.Text;
 using System.Windows.Forms;
 //Incluir a referência manualmente
 using System.Configuration;
+using System.Xml;
+using System.IO;
 
 namespace winVenda
 {
     public partial class FormConfig : Form
     {
+        public static bool OK = false;
+
         public FormConfig()
         {
             InitializeComponent();
         }
-
+        
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            XmlTextWriter myXmlTextWriter = new XmlTextWriter ("config.xml",System.Text.Encoding.UTF8);
             if (Verifica() != 0)
             {
                 MessageBox.Show("Os campos com * precisam ser preenchidos.");
@@ -35,30 +40,35 @@ namespace winVenda
 
                 try
                 {
-                                       
+
                     Conn.Conectar();
-                    
-                    System.Configuration.Configuration config =
-                            ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                    AppSettingsSection appSetSec = config.AppSettings;
-                    config.AppSettings.Settings["hostDB"].Value = textBox1.Text;
-                    config.AppSettings.Settings["database"].Value = textBox2.Text;
-                    config.AppSettings.Settings["userDB"].Value = textBox3.Text;
-                    config.AppSettings.Settings["passwordDB"].Value = textBox4.Text;
-                    label6.Text = "Conectado";
-                    config.Save();
-                    //config.AppSettings.Settings[
-                // Atualiza a seção do appString também
-                 ConfigurationManager.RefreshSection("appSettings");
 
+
+                    myXmlTextWriter.WriteStartElement("conectionstring");
+                    myXmlTextWriter.WriteAttributeString("hostDB", textBox1.Text);
+                    myXmlTextWriter.WriteAttributeString("database", textBox2.Text);
+                    myXmlTextWriter.WriteAttributeString("userDB", textBox3.Text);
+                    myXmlTextWriter.WriteAttributeString("passwordDB", textBox4.Text);
+                    myXmlTextWriter.WriteEndElement();
+
+                    //label6.Text = "Conectado";
+
+
+                    Conn.ExecuteNonQueryFile("sql.sql");
+                    myXmlTextWriter.Flush();
+                    myXmlTextWriter.Close();
                     MessageBox.Show("Configuração Salva");
-
+                    OK = true;
                     this.Close();
 
                 }
+                    
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Não foi possível conectar");
+                    MessageBox.Show("Não foi possível conectar. " + ex.Message);
+                    myXmlTextWriter.Close();
+                    File.Delete("config.xml");
+
                 }
                                
                 

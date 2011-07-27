@@ -83,6 +83,19 @@
     <Compile Include="FormConfig.Designer.cs">
       <DependentUpon>FormConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_CadastraFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CadastraFornecedor.Designer.cs">
+      <DependentUpon>Form_CadastraFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +132,12 @@
     <EmbeddedResource Include="FormConfig.resx">
       <DependentUpon>FormConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_CadastraFornecedor.resx">
+      <DependentUpon>Form_CadastraFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,7 +147,6 @@
     <EmbeddedResource Include="Vendas.resx">
       <DependentUpon>Vendas.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

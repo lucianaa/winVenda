@@ -114,6 +114,8 @@ namespace winVenda
         public ArrayList listar(string _n)
         {
             ArrayList arr = new ArrayList();
+            //Técnica para evitar SQL Injection
+            //Ideal é separar classe de banco de dados do modelo
             string sql = "SELECT * FROM Clientes where nome like " +
                 "@nome";
             MySqlCommand commS = new MySqlCommand
