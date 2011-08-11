@@ -49,13 +49,6 @@ CREATE TABLE `fornecedores` (
 -- Table structure for table `produtos`
 --
 
-DROP TABLE IF EXISTS `produtos`;
-CREATE TABLE `produtos` (
-  `idCodigo` int(11) NOT NULL DEFAULT '0',
-  `Nome` varchar(50) DEFAULT NULL,
-  `Preco` float DEFAULT NULL,
-  `Quantidade` varchar(50) DEFAULT NULL,
-  `DataCompra` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`idCodigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+create table produtos (codigo int not null auto_increment primary key, nome varchar(255), descricao text,  quantidade float, preco float);
+
 
