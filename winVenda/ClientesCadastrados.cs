@@ -9,9 +9,17 @@ namespace winVenda
     {
 
         ArrayList arr = new ArrayList();
-
+        bool abrirvendas = false;
+        public Cliente ClienteSelecionado;
         public ClientesCadastrados()
         {
+            InitializeComponent();
+        }
+
+        public ClientesCadastrados(bool vendas)
+        {
+            //btnNovo.Visible = true;
+            abrirvendas = vendas;
             InitializeComponent();
         }
 
@@ -38,7 +46,16 @@ namespace winVenda
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = dataGridView1.CurrentRow.Index;
-            new CadastroCliente((Cliente)arr[indice]).ShowDialog();
+            if (abrirvendas == true)
+            {
+                ClienteSelecionado = (Cliente)arr[indice];
+ 
+            }
+            else
+            {
+                new CadastroCliente((Cliente)arr[indice]).ShowDialog();
+
+            } 
             this.Close();
             
         }
@@ -50,6 +67,12 @@ namespace winVenda
             arr = cl.listar(txtNome.Text);
             //atribui o resultado dà propriedade DataSource da dataGridView
             dataGridView1.DataSource = arr; 
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            new CadastroCliente().ShowDialog();
+            CarregaGrid();
         }
 
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace winVenda.Properties {
+namespace Reports.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
