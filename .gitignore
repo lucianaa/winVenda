@@ -2,3 +2,6 @@
 winVenda/bin/*
 winVenda/obj/*
 winVenda.suo
+winVenda/reports/*
+winVenda/reports/bin/*
+winVenda/reports/obj/*
