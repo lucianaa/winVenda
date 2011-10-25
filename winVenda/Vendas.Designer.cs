@@ -53,6 +53,7 @@
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Size = new System.Drawing.Size(205, 18);
             this.txtProduto.TabIndex = 14;
+            this.txtProduto.Text = "Digite o nome do produto...";
             // 
             // label2
             // 
@@ -151,9 +152,9 @@
             this.btnProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduto.Location = new System.Drawing.Point(310, 59);
             this.btnProduto.Name = "btnProduto";
-            this.btnProduto.Size = new System.Drawing.Size(44, 21);
+            this.btnProduto.Size = new System.Drawing.Size(59, 21);
             this.btnProduto.TabIndex = 23;
-            this.btnProduto.Text = "...";
+            this.btnProduto.Text = "Buscar";
             this.btnProduto.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnProduto.UseVisualStyleBackColor = false;
             this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
@@ -166,7 +167,7 @@
             this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.Location = new System.Drawing.Point(310, 19);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(44, 21);
+            this.btnCliente.Size = new System.Drawing.Size(59, 21);
             this.btnCliente.TabIndex = 24;
             this.btnCliente.Text = "...";
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;

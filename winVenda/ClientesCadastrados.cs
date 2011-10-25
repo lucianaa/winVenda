@@ -66,7 +66,9 @@ namespace winVenda
             //Sobrecarga do método listar para buscar pelo nome
             arr = cl.listar(txtNome.Text);
             //atribui o resultado dà propriedade DataSource da dataGridView
-            dataGridView1.DataSource = arr; 
+            dataGridView1.DataSource = arr;
+            if (arr.Count == 0) 
+                MessageBox.Show("Nenhum registro foi encontrado");
         }
 
         private void btnNovo_Click(object sender, EventArgs e)

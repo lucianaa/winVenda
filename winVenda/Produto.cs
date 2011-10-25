@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Collections;
 using System;
+using System.Globalization;
 
 namespace winVenda
 {
@@ -51,7 +52,7 @@ namespace winVenda
         }
 
         public ArrayList listar(string _n)
-        {
+      {
             ArrayList arr = new ArrayList();
             //Técnica para evitar SQL Injection
             //Ideal é separar classe de banco de dados do modelo
@@ -84,6 +85,26 @@ namespace winVenda
             }
             return arr;
         }
+        public void Salvar()
+        {
+            //Formatar numero decimal e salvar corretamente no BD
+            NumberFormatInfo numberFormat = new NumberFormatInfo();
+            numberFormat.NumberGroupSeparator = ".";
 
+            string sql = "INSERT INTO produtos VALUES( null,'" + 
+                nome + "','" + 
+                descricao + "'," + quantidade.ToString(numberFormat) +
+                    "," + preco.ToString(numberFormat) + ")";
+            MySqlCommand commS = new MySqlCommand(sql, Conn.mConn);
+            //Tratamento de exceção
+            try
+            {
+                Conn.ExecuteNonQuery(commS);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

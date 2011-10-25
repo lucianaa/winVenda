@@ -40,6 +40,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.btnClientes.BackColor = System.Drawing.Color.AliceBlue;
             this.btnClientes.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientes.Location = new System.Drawing.Point(22, 38);
+            this.btnClientes.Location = new System.Drawing.Point(28, 62);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(126, 23);
             this.btnClientes.TabIndex = 0;
@@ -61,7 +62,7 @@
             this.btnProdutos.BackColor = System.Drawing.Color.AliceBlue;
             this.btnProdutos.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Location = new System.Drawing.Point(23, 105);
+            this.btnProdutos.Location = new System.Drawing.Point(29, 129);
             this.btnProdutos.Name = "btnProdutos";
             this.btnProdutos.Size = new System.Drawing.Size(124, 23);
             this.btnProdutos.TabIndex = 1;
@@ -74,7 +75,7 @@
             this.btnVendas.BackColor = System.Drawing.Color.AliceBlue;
             this.btnVendas.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.Location = new System.Drawing.Point(24, 175);
+            this.btnVendas.Location = new System.Drawing.Point(30, 199);
             this.btnVendas.Name = "btnVendas";
             this.btnVendas.Size = new System.Drawing.Size(124, 23);
             this.btnVendas.TabIndex = 2;
@@ -85,7 +86,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(199, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(205, 62);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(264, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -97,7 +98,7 @@
             this.button1.BackColor = System.Drawing.Color.AliceBlue;
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(22, 65);
+            this.button1.Location = new System.Drawing.Point(28, 89);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 23);
             this.button1.TabIndex = 4;
@@ -110,7 +111,7 @@
             this.button2.BackColor = System.Drawing.Color.AliceBlue;
             this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(23, 132);
+            this.button2.Location = new System.Drawing.Point(29, 156);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(124, 23);
             this.button2.TabIndex = 5;
@@ -123,7 +124,7 @@
             this.button3.BackColor = System.Drawing.Color.AliceBlue;
             this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(24, 203);
+            this.button3.Location = new System.Drawing.Point(30, 227);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(124, 23);
             this.button3.TabIndex = 6;
@@ -136,7 +137,7 @@
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
             this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(515, 203);
+            this.button4.Location = new System.Drawing.Point(521, 227);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(124, 23);
             this.button4.TabIndex = 7;
@@ -149,7 +150,7 @@
             this.button5.BackColor = System.Drawing.Color.AliceBlue;
             this.button5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(515, 40);
+            this.button5.Location = new System.Drawing.Point(521, 64);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(123, 24);
             this.button5.TabIndex = 8;
@@ -162,7 +163,7 @@
             this.button6.BackColor = System.Drawing.Color.AliceBlue;
             this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(515, 103);
+            this.button6.Location = new System.Drawing.Point(521, 127);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(123, 24);
             this.button6.TabIndex = 9;
@@ -174,12 +175,21 @@
             this.button7.BackColor = System.Drawing.Color.AliceBlue;
             this.button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(515, 133);
+            this.button7.Location = new System.Drawing.Point(521, 157);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(123, 24);
             this.button7.TabIndex = 10;
             this.button7.Text = "Configuração";
             this.button7.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(30, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(615, 41);
+            this.label1.TabIndex = 11;
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // TelaPrincipal
             // 
@@ -187,6 +197,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(679, 262);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -219,6 +230,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label1;
     }
 }
 
