@@ -4,7 +4,11 @@
 -- ------------------------------------------------------
 -- Server version	5.1.36-community-log
 
+--
+-- Current Database: `poo`
+--
 
+USE `poo`;
 
 --
 -- Table structure for table `clientes`
