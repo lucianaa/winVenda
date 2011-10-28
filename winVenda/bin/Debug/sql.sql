@@ -1,14 +1,3 @@
--- MySQL dump 10.13  Distrib 5.1.36, for Win32 (ia32)
---
--- Host: localhost    Database: poo
--- ------------------------------------------------------
--- Server version	5.1.36-community-log
-
---
--- Current Database: `poo`
---
-
-USE `poo`;
 
 --
 -- Table structure for table `clientes`
@@ -23,14 +12,6 @@ CREATE TABLE `clientes` (
   PRIMARY KEY (`codigo`)
 ) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `clientes`
---
-
-LOCK TABLES `clientes` WRITE;
---
--- Table structure for table `fornecedores`
---
 
 DROP TABLE IF EXISTS `fornecedores`;
 CREATE TABLE `fornecedores` (
@@ -41,13 +22,6 @@ CREATE TABLE `fornecedores` (
   PRIMARY KEY (`codigo`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `fornecedores`
---
-
---
--- Table structure for table `produtos`
---
 
 create table produtos (codigo int not null auto_increment primary key, nome varchar(255), descricao text,  quantidade float, preco float);
 
