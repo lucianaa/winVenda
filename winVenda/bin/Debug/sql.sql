@@ -1,8 +1,3 @@
-
---
--- Table structure for table `clientes`
---
-
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE `clientes` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
@@ -22,7 +17,7 @@ CREATE TABLE `fornecedores` (
   PRIMARY KEY (`codigo`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-
+DROP TABLE IF EXISTS `produtos`;
 create table produtos (codigo int not null auto_increment primary key, nome varchar(255), descricao text,  quantidade float, preco float);
 
 

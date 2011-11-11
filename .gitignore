@@ -2,7 +2,7 @@
 winVenda/bin/*
 winVenda/obj/*
 winVenda.suo
-winVenda/Reports/*
 winVenda/Reports/bin/*
 winVenda/Reports/obj/*
 !winVenda/bin/Debug/sql.sql
+!winVenda/bin/Debug/MySql.Data.dll
